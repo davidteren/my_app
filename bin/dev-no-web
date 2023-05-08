@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+command_exists () {
+  type "$1" &> /dev/null ;
+}
+
+if  command_exists overmind; then
+  overmind start -l js,css -f Procfile.dev
+  exit 0
+fi
+
+echo "Overmind is not installed. Please run 'brew install overmind'"
